@@ -8,38 +8,48 @@ namespace Taschenrechner
 {
     class Program
     {
-        static string HoleSummanden(string ausgabeText)
-        {
-            Console.Write(ausgabeText);
-            string zahl1 = Console.ReadLine();
-
-            return zahl1;
-        }
+        
         static void Main(string[] args)
         {
 
-            // Konvertiert String in Gleitkommazahl
-            double zahlA = Convert.ToDouble(HoleSummanden("Gieb den ersten Summanden ein:")); 
-            double zahlB = Convert.ToDouble(HoleSummanden("Gieb den zweiten Summanden ein:"));
+            // Konvertiert String in Gleitkommazahl Double um
+            double zahlA = Convert.ToDouble(BenutzerEingabe("Bitte gib die erste Zahl ein: ")); 
+            double zahlB = Convert.ToDouble(BenutzerEingabe("Bitte gib die zweite Zahl ein: "));
+            string operation = BenutzerEingabe("Bitte gib die auszuführenden Operator(+, -, * oder /) ein: ");
 
-            //Berechnung Ausführen und Ausgabe
-            double summe = Addiere(zahlA, zahlB);
-            Console.WriteLine("Die Addition von: " + zahlA + " + " + zahlB + " = {0}", summe);
+            //Berechnung Ausführen
             
-            WarteAufBenutzerEingabe();
+            if (operation == "+")
+            {
+                double summe = Addiere(zahlA, zahlB);
+                Console.WriteLine("Das Ergebnis der Addition ist: {0}", summe);
+            }
+            else if (operation == "-")
+            {
+                double summe = Subtrahiere(zahlA, zahlB);
+                Console.WriteLine("Das Ergebnis der Subtraction ist: {0}", summe);
+            }
+
+            BenutzerEingabe("Zum Beenden eine Taste Drücken!");
         }
 
+        static string BenutzerEingabe(string ausgabeText)
+        {
+            Console.Write(ausgabeText);
+            string number = Console.ReadLine();
+
+            return number;
+        }
         static double Addiere(double ersterSummand, double zweiterSummand) 
         {
-            double summe = ersterSummand + ersterSummand;
+            double summe = ersterSummand + zweiterSummand;
             return summe;
         }
-
-        static void WarteAufBenutzerEingabe()
+        static double Subtrahiere(double minuend, double subtrahent)
         {
-            Console.Write("Zum Beenden eine Taste Drücken!");
-            Console.ReadLine();        
+            double summe = minuend - subtrahent;
+            return summe;
         }
-
+        
     }
 }
