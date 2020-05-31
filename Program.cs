@@ -23,10 +23,15 @@ namespace Taschenrechner
             float summe = zahlA + zahlB;
 
             Console.WriteLine("Die Addition von: " + zahl1 + " + " + zahl2 + " = {0}", summe);
-            Console.Write("Zum Beenden eine Taste Drücken!");
-            Console.ReadKey();
+            
+            WarteAufBenutzerEingabe();
         }
 
+        static void WarteAufBenutzerEingabe()
+        {
+            Console.Write("Zum Beenden eine Taste Drücken!");
+            Console.ReadLine();        
+        }
 
     }
 }
