@@ -15,6 +15,8 @@ namespace Taschenrechner
             // Konvertiert String in Gleitkommazahl Double um
             double zahlA = Convert.ToDouble(BenutzerEingabe("Bitte gib die erste Zahl ein: ")); 
             double zahlB = Convert.ToDouble(BenutzerEingabe("Bitte gib die zweite Zahl ein: "));
+
+            //Abfrage der Operatoren + - * /
             string operation = BenutzerEingabe("Bitte gib die auszuführenden Operator(+, -, * oder /) ein: ");
 
             //Berechnung Ausführen
@@ -44,6 +46,7 @@ namespace Taschenrechner
                 Console.WriteLine("Die eingabe war Falsch");
             }
 
+            //Beenden
             BenutzerEingabe("Zum Beenden eine Taste Drücken!");
         }
 
