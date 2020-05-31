@@ -8,30 +8,30 @@ namespace Taschenrechner
 {
     class Program
     {
+        static string HoleSummanden(string ausgabeText)
+        {
+            Console.Write(ausgabeText);
+            string zahl1 = Console.ReadLine();
 
+            return zahl1;
+        }
         static void Main(string[] args)
         {
-            Console.Write("Gieb den ersten Summanden ein:");
-            string zahl1 = Console.ReadLine();
-            double zahlA = Convert.ToDouble(zahl1); // Konvertiert String in Gleitkommazahl
 
-            Console.Write("Gieb den zweiten Summanden ein:");
-            string zahl2 = Console.ReadLine();
-            double zahlB = Convert.ToDouble(zahl2); // Konvertiert String in Gleitkommazahl
+            // Konvertiert String in Gleitkommazahl
+            double zahlA = Convert.ToDouble(HoleSummanden("Gieb den ersten Summanden ein:")); 
+            double zahlB = Convert.ToDouble(HoleSummanden("Gieb den zweiten Summanden ein:"));
 
+            //Berechnung Ausführen und Ausgabe
             double summe = Addiere(zahlA, zahlB);
-            
-
-            Console.WriteLine("Die Addition von: " + zahl1 + " + " + zahl2 + " = {0}", summe);
+            Console.WriteLine("Die Addition von: " + zahlA + " + " + zahlB + " = {0}", summe);
             
             WarteAufBenutzerEingabe();
         }
 
         static double Addiere(double ersterSummand, double zweiterSummand) 
         {
-
             double summe = ersterSummand + ersterSummand;
-
             return summe;
         }
 
