@@ -15,27 +15,9 @@ namespace Taschenrechner
 
             ConsoleView view = new ConsoleView(model);
 
+            AnwendungsController controller = new AnwendungsController(view, model);
+            controller.Ausfuehren();
 
-            // Konvertiert String in Gleitkommazahl Double um
-            double zahlA = Convert.ToDouble(view.BenutzerEingabe("Bitte gib die erste Zahl ein: "));
-            double zahlB = Convert.ToDouble(view.BenutzerEingabe("Bitte gib die zweite Zahl ein: "));
-
-            //Abfrage der Operatoren + - * /
-            string operation = view.BenutzerEingabe("Bitte gib den auszuführenden Operator(+, -, * oder /) ein: ");
-
-            //Berechnung Ausführen
-            
-            model.Berechne(zahlA, zahlB, operation);
-
-            // Ausgabe
-            view.GibSummeAus(operation);
-
-            //Beenden
-            
-            view.BenutzerEingabe("Zum Beenden eine Taste Drücken!");
         }
-
-        
-
     }
 }
