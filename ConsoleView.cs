@@ -13,13 +13,20 @@ namespace Taschenrechner
         public ConsoleView(RechnerModel model)
         {
             this.model = model;
+           
         }
+
+        public bool BenutzterWillBeenden = true;
 
         public string BenutzerEingabe(string ausgabeText)
         {
             Console.Write(ausgabeText);
             string number = Console.ReadLine();
-
+            if(number == "exit")
+            {
+                BenutzterWillBeenden = false;
+                
+            }
             return number;
         }
 

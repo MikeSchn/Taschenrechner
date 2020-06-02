@@ -19,24 +19,24 @@ namespace Taschenrechner
 
         public void Ausfuehren()
         {
-            // Konvertiert String in Gleitkommazahl Double um
-            double zahlA = Convert.ToDouble(view.BenutzerEingabe("Bitte gib die erste Zahl ein: "));
-            double zahlB = Convert.ToDouble(view.BenutzerEingabe("Bitte gib die zweite Zahl ein: "));
+            while (view.BenutzterWillBeenden)
+            {
+                // Konvertiert String in Gleitkommazahl Double um
+                
+                double zahlA = Convert.ToDouble(view.BenutzerEingabe("Bitte gib die erste Zahl ein: "));
+                string operation = view.BenutzerEingabe("Bitte gib den auszuführenden Operator(+, -, * oder /) ein: ");
+                double zahlB = Convert.ToDouble(view.BenutzerEingabe("Bitte gib die zweite Zahl ein: "));
 
-            //Abfrage der Operatoren + - * /
-            string operation = view.BenutzerEingabe("Bitte gib den auszuführenden Operator(+, -, * oder /) ein: ");
+                //Berechnung Ausführen
+                model.Berechne(zahlA, zahlB, operation);
 
-            //Berechnung Ausführen
+                // Ausgabe
+                view.GibSummeAus(operation);
 
-            model.Berechne(zahlA, zahlB, operation);
-
-            // Ausgabe
-            view.GibSummeAus(operation);
-
-            //Beenden
-
-            view.BenutzerEingabe("Zum Beenden eine Taste Drücken!");
+                //Beenden
+                view.BenutzerEingabe("Für noch eine Berechnung drücke Enter oder gib exit zum Beenden ein: ");
+                
+            }
         }
-
     }
 }
