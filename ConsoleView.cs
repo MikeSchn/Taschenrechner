@@ -22,7 +22,7 @@ namespace Taschenrechner
         {
             Console.Write(ausgabeText);
             string number = Console.ReadLine();
-            if(number == "exit")
+            if(number.ToLower() == "exit")
             {
                 BenutzterWillBeenden = false;
                 
